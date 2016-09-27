@@ -4,7 +4,6 @@ using System.Collections;
 
 public class SCR_BaseUI : MonoBehaviour 
 {
-
 	// Attributes.
 	private const string scenePrefix = "SCN_";					// This is a prefix for the unity scenes in this project.
 	private const string testScene = scenePrefix + "Test";		// This is the scene name for the test scene.
@@ -20,13 +19,13 @@ public class SCR_BaseUI : MonoBehaviour
 		SCR_GameVariables.IsLocked = false;
 	}
 
-	public void LoadLevel()
+	public void LoadLevel(int levelId)
 	{
 		// This will reset the game variables from the static game variables class.
 		ResetGameVariables();
 
 		// Load in the test scene.
-		SceneManager.LoadScene(testScene);
+		SceneManager.LoadScene(levelId);
 	}
 
 	public void LoadMenu()
