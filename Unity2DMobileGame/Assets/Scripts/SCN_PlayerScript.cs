@@ -4,6 +4,7 @@ using System.Collections;
 public class SCN_PlayerScript : MonoBehaviour {
 
 	[Range(50.0f, 200.0f)][SerializeField] private float speed = 100.0f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -16,6 +17,13 @@ public class SCN_PlayerScript : MonoBehaviour {
 
 	public void Go()
 	{
-		GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0.0f));
+		if(!SCR_GameVariables.IsLocked)
+		{
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0.0f));
+
+			// The game is now locked.
+			SCR_GameVariables.IsLocked = true;
+		}
 	}
+
 }

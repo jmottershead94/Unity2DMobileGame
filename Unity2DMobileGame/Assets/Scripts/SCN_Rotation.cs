@@ -15,6 +15,7 @@ public class SCN_Rotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if(isRotating)
 		{
 			transform.Rotate(new Vector3(0.0f, 0.0f, rotationSpeed * direction));
@@ -29,7 +30,7 @@ public class SCN_Rotation : MonoBehaviour {
 
 	public void Rotate(float dir)
 	{
-		if(!isRotating)
+		if(!isRotating && !SCR_GameVariables.IsLocked)
 		{
 			isRotating = true;
 			direction = dir;
