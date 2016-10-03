@@ -5,7 +5,6 @@ public class SCN_SingleRotaion : MonoBehaviour {
 
 
 	bool swapping = false;		// If this pipe is going to swap with another pipe.
-	bool over = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -14,8 +13,6 @@ public class SCN_SingleRotaion : MonoBehaviour {
 	// Update is called once per frame
 	void OnMouseDown()
 	{
-		//Debug.Log("Tap detected.");
-
 		if(!SCR_GameVariables.IsLocked)
 		{
 			//transform.parent.Rotate(0.0f, 0.0f, 90.0f);
@@ -27,7 +24,6 @@ public class SCN_SingleRotaion : MonoBehaviour {
 
 	void OnMouseOver()
 	{
-		//over = true;
 		if(Input.GetMouseButtonUp(0) && SCR_GameVariables.isPressed)
 		{
 
@@ -42,28 +38,8 @@ public class SCN_SingleRotaion : MonoBehaviour {
 		}
 	}
 
-	void OnMouseExit()
-	{
-		//over = false;
-	}
-
-	void OnMouseUp()
-	{
-		Debug.Log(over);
-		if(SCR_GameVariables.isPressed && over)
-		{
-			Debug.Log("BOOM");
-			transform.position = SCR_GameVariables.swappingObject.position;
-			transform.rotation = SCR_GameVariables.swappingObject.rotation;
-			Debug.Log(transform.position.x);
-			Debug.Log(SCR_GameVariables.swappingObject.position.x);
-		}
-	}
-
-	// 
 	void OnMouseUpAsButton()
 	{
-		//Debug.Log("BOOM");
 		if(swapping)
 		{
 			transform.parent.Rotate(0.0f, 0.0f, 90.0f);
