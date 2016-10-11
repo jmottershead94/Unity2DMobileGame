@@ -26,14 +26,16 @@ public class SCN_SingleRotaion : MonoBehaviour {
 	{
 		if(Input.GetMouseButtonUp(0) && SCR_GameVariables.isPressed)
 		{
-
 			if((transform.position.x * -1) == SCR_GameVariables.swappingObject.position.x || (transform.position.y * -1) == SCR_GameVariables.swappingObject.position.y)
 			{
-				Vector3 vec = transform.parent.position;
-				Debug.Log(vec);
-				transform.parent.position = SCR_GameVariables.swappingObject.parent.position;
-				SCR_GameVariables.swappingObject.parent.position = vec;
-				Debug.Log(vec);
+				if((transform.position.x * -1) != SCR_GameVariables.swappingObject.position.x || (transform.position.y * -1) != SCR_GameVariables.swappingObject.position.y)
+				{
+					Vector3 vec = transform.parent.position;
+					Debug.Log(vec);
+					transform.parent.position = SCR_GameVariables.swappingObject.parent.position;
+					SCR_GameVariables.swappingObject.parent.position = vec;
+					Debug.Log(vec);
+				}
 			}
 		}
 	}
