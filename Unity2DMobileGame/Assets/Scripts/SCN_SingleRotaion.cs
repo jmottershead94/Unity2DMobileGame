@@ -26,17 +26,37 @@ public class SCN_SingleRotaion : MonoBehaviour {
 	{
 		if(Input.GetMouseButtonUp(0) && SCR_GameVariables.isPressed)
 		{
-			if((transform.position.x * -1) == SCR_GameVariables.swappingObject.position.x || (transform.position.y * -1) == SCR_GameVariables.swappingObject.position.y)
-			{
-				if((transform.position.x * -1) != SCR_GameVariables.swappingObject.position.x || (transform.position.y * -1) != SCR_GameVariables.swappingObject.position.y)
-				{
-					Vector3 vec = transform.parent.position;
-					Debug.Log(vec);
-					transform.parent.position = SCR_GameVariables.swappingObject.parent.position;
-					SCR_GameVariables.swappingObject.parent.position = vec;
-					Debug.Log(vec);
-				}
-			}
+		if(Mathf.RoundToInt(transform.position.x * -1) == Mathf.RoundToInt(SCR_GameVariables.swappingObject.position.x) && Mathf.RoundToInt(transform.position.y * -1) != Mathf.RoundToInt(SCR_GameVariables.swappingObject.position.y))
+		{
+			Vector3 vec = transform.parent.position;
+			transform.parent.position = SCR_GameVariables.swappingObject.parent.position;
+			SCR_GameVariables.swappingObject.parent.position = vec;
+
+		}
+		else if(Mathf.RoundToInt(transform.position.x * -1) == Mathf.RoundToInt(SCR_GameVariables.swappingObject.position.x) && Mathf.RoundToInt(transform.position.y) == Mathf.RoundToInt(SCR_GameVariables.swappingObject.position.y))
+		{
+				Vector3 vec = transform.parent.position;
+							Debug.Log(vec);
+							transform.parent.position = SCR_GameVariables.swappingObject.parent.position;
+							SCR_GameVariables.swappingObject.parent.position = vec;
+							Debug.Log(vec);
+		}
+		else if(Mathf.RoundToInt(transform.position.y * -1) == Mathf.RoundToInt(SCR_GameVariables.swappingObject.position.y) && Mathf.RoundToInt(transform.position.x * -1) != Mathf.RoundToInt(SCR_GameVariables.swappingObject.position.x))
+		{
+				Vector3 vec = transform.parent.position;
+							Debug.Log(vec);
+							transform.parent.position = SCR_GameVariables.swappingObject.parent.position;
+							SCR_GameVariables.swappingObject.parent.position = vec;
+							Debug.Log(vec);
+		}
+		else if(Mathf.RoundToInt(transform.position.y * -1) == Mathf.RoundToInt(SCR_GameVariables.swappingObject.position.y) && Mathf.RoundToInt(transform.position.x) == Mathf.RoundToInt(SCR_GameVariables.swappingObject.position.x))
+		{
+				Vector3 vec = transform.parent.position;
+							Debug.Log(vec);
+							transform.parent.position = SCR_GameVariables.swappingObject.parent.position;
+							SCR_GameVariables.swappingObject.parent.position = vec;
+							Debug.Log(vec);
+		}
 		}
 	}
 
